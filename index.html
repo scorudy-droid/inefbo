@@ -26,6 +26,25 @@ php -q wsserver.php-->
     
     <link rel="stylesheet" href="css/startup.css" />
     <link rel="stylesheet" href="css/main.css" />
+    
+    <script>
+  // Reemplaza "tunombre" y "misitio" por palabras clave de tu elección
+  const namespace = "INEFBO"; 
+  const key = "INEFBO";
+
+  fetch(`https://countapi.xyz{namespace}/${key}`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('contador').innerText = data.value;
+    })
+    .catch(error => {
+      console.error('Error al cargar el contador:', error);
+      // Failsafe por si falla la API externa
+      document.getElementById('contador').innerText = "muchas"; 
+    });
+</script>
+    
+    
 <script src="js/vendor/modernizr.js"></script></head>
 <!-- Código de instalación Cliengo para scorudy@hotmail.com -->
   <script type="text/javascript">(function () {
@@ -290,7 +309,7 @@ document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYe
         <div id="copyright"></div>
         
     </p>
-        <p>    <p>Número de visitas: <span id="contador">0</span></p>
+        <p>Esta página ha sido visitada <span id="contador">0</span> veces.</p>
 
     <script src="script.js"></script></p>
     </div>
